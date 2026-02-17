@@ -1,16 +1,46 @@
-# Node
+# ===== Node.js =====
 node_modules/
 dist/
 build/
 *.log
 .npm/
 .cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# Electron
+# ===== pnpm =====
+.pnpm-store/
+.pnpm-debug.log*
+pnpm-lock.yaml
+
+# ===== Lock files =====
+package-lock.json
+yarn.lock
+
+# ===== Electron =====
 .electron/
 out/
+.forge/
 
-# Python
+# ===== Vite =====
+vite.config.*.timestamp-*
+
+# ===== TypeScript =====
+*.tsbuildinfo
+
+# ===== Build outputs =====
+release/
+*.exe
+*.dmg
+*.AppImage
+*.snap
+*.deb
+*.rpm
+*.msi
+
+# ===== Python =====
 __pycache__/
 *.py[cod]
 *$py.class
@@ -23,28 +53,42 @@ ENV/
 pip-log.txt/
 pip/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.tox/
+.nox/
 
-# OS
+# ===== OS =====
 .DS_Store
 Thumbs.db
 Desktop.ini
 
-# IDE
+# ===== IDE =====
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Env
+# ===== Env =====
 .env
 .env.local
 .env.*.local
 
-# Logs
+# ===== Logs =====
 logs/
 *.log
 
-# Temporary
+# ===== Test =====
+coverage/
+.nyc_output/
+
+# ===== Temporary =====
 tmp/
 temp/
+.npm-cache/
+*.bak
+*.tmp
+*.temp
