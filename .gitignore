@@ -1,0 +1,50 @@
+# Node
+node_modules/
+dist/
+build/
+*.log
+.npm/
+.cache/
+
+# Electron
+.electron/
+out/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+pip-log.txt/
+pip/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Temporary
+tmp/
+temp/

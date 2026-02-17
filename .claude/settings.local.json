@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm create:*)",
+      "Bash(npx create-electron-app@latest:*)",
+      "Bash(npm create electron-vite@latest agent-desktop-pet:*)",
+      "Bash(python:*)",
+      "Bash(backend/.venv/Scripts/python.exe:*)"
+    ]
+  }
+}
