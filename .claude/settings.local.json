@@ -6,7 +6,12 @@
       "Bash(npm create electron-vite@latest agent-desktop-pet:*)",
       "Bash(python:*)",
       "Bash(backend/.venv/Scripts/python.exe:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm start)",
+      "Skill(agent-browser)",
+      "Bash(curl:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
