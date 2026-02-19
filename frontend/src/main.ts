@@ -2,11 +2,19 @@ import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 
+if (process.platform === 'linux') {
+  process.env.MESA_LOADER_DRIVER_OVERRIDE = 'd3d12';
+  process.env.GALLIUM_DRIVER = 'd3d12';
+  process.env.LIBGL_ALWAYS_SOFTWARE = '0';
+  process.env.LIBGL_DRIVERS_PATH = '/usr/lib/wsl/lib';
+  const ldLibraryPath = process.env.LD_LIBRARY_PATH ?? '';
+  if (!ldLibraryPath.includes('/usr/lib/wsl/lib')) {
+    process.env.LD_LIBRARY_PATH = `/usr/lib/wsl/lib${ldLibraryPath ? `:${ldLibraryPath}` : ''}`;
+  }
+}
+
 app.commandLine.appendSwitch('ignore-gpu-blocklist');
 app.commandLine.appendSwitch('enable-webgl');
-app.commandLine.appendSwitch('enable-webgl2');
-app.commandLine.appendSwitch('use-gl', 'swiftshader');
-app.commandLine.appendSwitch('use-angle', 'swiftshader');
 app.commandLine.appendSwitch('disable-gpu-sandbox');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -23,7 +31,7 @@ const createWindow = () => {
     frame: false,
     alwaysOnTop: true,
     hasShadow: false,
-    resizable: false,
+    // resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false,
@@ -40,7 +48,7 @@ const createWindow = () => {
   }
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
