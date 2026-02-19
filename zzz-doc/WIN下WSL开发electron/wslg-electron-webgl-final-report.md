@@ -89,3 +89,15 @@ document.createElement('canvas').getContext('webgl')
 ## 推荐后续维护策略
 - 保持 WebGL1 路径稳定，不要强行切换 ANGLE 后端
 - 如需 WebGL2 或更稳定 GPU，建议直接在 Windows 原生环境运行 Electron
+
+## 仅在 WSL 生效的启动方式
+为避免影响 Windows 原生运行，启动脚本已改为自动检测 WSL，只在 WSL 注入 D3D12 环境变量。
+
+实现方式:
+- `frontend/scripts/start.js` 检测 WSL 环境
+- 仅当 WSL 时注入以下变量:
+  - `MESA_LOADER_DRIVER_OVERRIDE=d3d12`
+  - `GALLIUM_DRIVER=d3d12`
+  - `LIBGL_ALWAYS_SOFTWARE=0`
+
+Windows 原生运行时不会注入这些变量，不影响本机 GPU/驱动配置。
