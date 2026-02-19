@@ -27,7 +27,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 750,
-    transparent: true,
+    // transparent: true,
     frame: false,
     alwaysOnTop: true,
     hasShadow: false,
