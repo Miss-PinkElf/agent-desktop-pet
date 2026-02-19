@@ -1,0 +1,8 @@
+{
+  "name": "agent-desktop-pet",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix frontend run start",
+    "frontend:start": "npm --prefix frontend run start"
+  }
+}
