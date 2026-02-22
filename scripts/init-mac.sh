@@ -8,7 +8,7 @@ MARKER_END="# <<< init-mac config <<<"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_DIR="$HOME/init-mac-logs"
 
-USE_BREW_MIRROR=0
+USE_BREW_MIRROR=1
 INSTALL_KARABINER=0
 INSTALL_CLASH=0
 SKIP_GUI=0
@@ -41,7 +41,8 @@ usage() {
 Usage: init-mac.sh [options]
 
 Options:
-  --brew-mirror      Enable temporary brew bottle mirror for this run
+  --brew-mirror      Enable brew bottle mirror for this run (default)
+  --no-brew-mirror   Disable brew bottle mirror for this run
   --with-karabiner   Install karabiner-elements
   --with-clash       Install clash-verge-rev cask
   --skip-gui         Skip GUI app installations
@@ -49,7 +50,8 @@ Options:
 
 Examples:
   bash scripts/init-mac.sh
-  bash scripts/init-mac.sh --brew-mirror --with-clash
+  bash scripts/init-mac.sh --with-clash
+  bash scripts/init-mac.sh --no-brew-mirror
 EOF
 }
 
@@ -100,6 +102,9 @@ parse_args() {
     case "$1" in
       --brew-mirror)
         USE_BREW_MIRROR=1
+        ;;
+      --no-brew-mirror)
+        USE_BREW_MIRROR=0
         ;;
       --with-karabiner)
         INSTALL_KARABINER=1
@@ -190,6 +195,8 @@ configure_brew_env() {
   if [[ "$USE_BREW_MIRROR" -eq 1 ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
     log "Brew mirror enabled for current run"
+  else
+    log "Brew mirror disabled for current run"
   fi
 }
 

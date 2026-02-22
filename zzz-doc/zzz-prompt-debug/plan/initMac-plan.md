@@ -37,7 +37,7 @@
 - npm 源：`https://registry.npmmirror.com`
 - pnpm 源：`https://registry.npmmirror.com`
 - pip 源：清华或阿里镜像（脚本中给默认值并支持切换）
-- brew 镜像仅作为可选开关（网络慢时启用）
+- brew bottle 镜像默认启用国内源（可通过参数关闭）
 
 ### 阶段 3：CLI 工具安装
 - 通过 brew 安装：`python@3.11`、`node`、`git`、`pnpm`、`starship`、`zoxide`、`fzf`

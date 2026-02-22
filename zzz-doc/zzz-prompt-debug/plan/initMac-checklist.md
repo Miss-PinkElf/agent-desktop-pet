@@ -2,6 +2,7 @@
 
 ## 1) 执行顺序
 1. 安装初始化：`bash scripts/init-mac.sh`
+   - 默认启用 brew 国内镜像；如需关闭可用 `bash scripts/init-mac.sh --no-brew-mirror`
 2. 校验结果：`bash scripts/verify-init.sh`
 3. 如需重置环境：`bash scripts/reset-init-mac.sh --yes`
 4. 深度重置（含 Homebrew + CLT）：`bash scripts/reset-init-mac.sh --yes --remove-bootstrap`
